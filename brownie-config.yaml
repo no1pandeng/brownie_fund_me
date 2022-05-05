@@ -1,0 +1,34 @@
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+# get dependencies
+dependencies: 
+  # - <organization/repo>@<version>
+  smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+live:
+  - name: Ethereum
+    networks:
+      - name: Rinkeby (Infura)
+        chainid: 4
+        id: rinkeby
+        host: https://rinkeby.infura.io/v3/71770f6a179840459e54d41427731ac0
+        explorer: https://api-rinkeby.etherscan.io/api
+networks:
+  default: ganache-local
+  rinkeby:
+    eth_to_usd_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+  mainnet-fork-dev:
+    eth_to_usd_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    verify: False
+  ganache-local:
+    verify: False
+  development:
+    verify: False
+
+
+
